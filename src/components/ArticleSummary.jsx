@@ -27,7 +27,6 @@ function ArticleSummary({ article }) {
       <div className="article-stats">
         <span>Votes: {article.votes}</span>
         
-        <Link to={`/articles/${article.article_id}/comments`}><span>Comments: {article.comment_count}</span></Link>
       </div>
       
       <Link 

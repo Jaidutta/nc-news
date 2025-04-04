@@ -8,3 +8,11 @@ const ncNewsAPI = axios.create({
 export async function getAllArticles(){
   return ncNewsAPI.get('/articles')
 }
+
+export function getArticleById(id) {
+  return ncNewsAPI.get(`/articles/${id}`)
+}
+
+export function getCommentsByArticleId(id) {
+  return ncNewsAPI.get(`/articles/${id}/comments`)
+}
