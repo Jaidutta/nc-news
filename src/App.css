@@ -246,7 +246,7 @@ footer p {
     max-width: 95%; 
 }
 
-.single-article-interactions {
+.single-article-interactive-vote {
     display: flex;
     justify-content: center;
     gap: 0.5em;
@@ -255,11 +255,34 @@ footer p {
 
 .single-article-votes-button {
     background-color: #3182CE;
+    margin-right: 1em;
+    transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); 
 }
+
+
 
 .single-article-comments-section {
     order: 5;
     margin-top: 1em;
+}
+
+.single-article-votes-button:hover{
+    background-color: #669dd0;;
+}
+
+.single-article-votes-button:active {
+ 
+}
+.single-article-votes-button span { 
+    font-size: 1.2em; 
+    color: red; 
+    vertical-align: middle;
+    font-size: 1.2rem;
+}
+.single-article-comments-section {
+  order: 5;
+  margin-top: 1em;
 }
 
 .single-article-comments-container {
