@@ -260,8 +260,6 @@ footer p {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
-
-
 .single-article-comments-section {
     order: 5;
     margin-top: 1em;
@@ -279,6 +277,13 @@ footer p {
     color: red; 
     vertical-align: middle;
     font-size: 1.2rem;
+}
+
+p.vote-count {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-style: italic;
 }
 .single-article-comments-section {
   order: 5;

@@ -37,14 +37,14 @@ function VoteButton({ article }) {
                 onClick={() => handleClick(1)}
                 disabled={voting}
             >
-                <span id="increment-heart">&#x2764;&#xFE0F;</span> UpVote
+                <span id="increment-vote">👍</span> UpVote
             </button>
             <button
                 className="single-article-votes-button decrement-button"
                 onClick={() => handleClick(-1)}
                 disabled={voting}
             >
-                <span id="decement-heart">&#x2764;&#xFE0F;</span> Downvote
+                <span id="decement-vote">👎</span> Downvote
             </button>
             {voteError && <p className="vote-error">{voteError}</p>}
         </div>
