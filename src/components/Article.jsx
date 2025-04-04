@@ -1,14 +1,16 @@
+
 import { Link, useParams } from "react-router";
 import useApiRequest from "../hooks/useApiRequest";
-import { getArticleById, getCommentsByArticleId } from "../api"; 
+import { getArticleById, getCommentsByArticleId } from "../api";
 import Comment from "./Comment";
+import VoteButton from "./VoteButton";
 
 function Article() {
     const { article_id } = useParams();
     const { data: article, isLoading: articleLoading, isError: articleError } = useApiRequest(getArticleById, 'article', article_id);
     const { data: comments, isLoading: commentsLoading, isError: commentsError } = useApiRequest(getCommentsByArticleId, 'comments', article_id);
 
-    let totalCommentMessage = article.comment_count > 0 ?  "Comments" : "Comment";
+    let totalCommentMessage = article.comment_count > 0 ? "Comments" : "Comment";
     if (articleLoading || commentsLoading) {
         return <p>Loading...</p>;
     }
@@ -20,9 +22,8 @@ function Article() {
     if (!article) {
         return <p>Single article not found.</p>;
     }
-    console.log("<<< comments",comments);
-
-    return (
+    
+       return (
         <article className="single-article-card">
             <h3 className="single-article-title">{article.title}</h3>
             <div className="single-article-meta">
@@ -31,11 +32,10 @@ function Article() {
                 <p>Topic: {article.topic}</p>
             </div>
             <div className="single-article-image-container">
-                <img className="single-article-image" src ={article.article_img_url} alt={article.title} />
+                <img className="single-article-image" src={article.article_img_url} alt={article.title} />
             </div>
-            <section className="single-article-interactions">
-                <button className='single-article-votes-button'>{article.votes} votes</button>
-               
+            <section className="single-article-interactive-vote">
+               <VoteButton article ={article}/>
             </section>
 
             {/* Render comments */}
@@ -43,7 +43,7 @@ function Article() {
                 <h4>Total {totalCommentMessage} : {article.comment_count}  </h4>
                 <div className="single-article-comments-container">
                     {comments.map((comment) => (
-                       <Comment key={comment.created_at} comment={comment} />
+                        <Comment key={comment.created_at} comment={comment} />
                     ))}
                 </div>
             </section>
@@ -51,4 +51,4 @@ function Article() {
     );
 }
 
-export default Article;
+export default Article
